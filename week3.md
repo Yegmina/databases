@@ -164,6 +164,12 @@ where id in
 ![screenshot](w3a2q8.png)
 ### Question 9
 
+SELECT name
+FROM airport
+WHERE ident = (SELECT location
+               FROM game
+               WHERE screen_name = 'Ilkka');
+
 
 ![screenshot](w3a2q9.png)
 ### Question 10
