@@ -74,22 +74,99 @@ JOIN
 WHERE
     country.name = 'Iceland';
 
-![screenshot of w3q1](w3a2q1.png)
+![screenshot](w3a2q1.png)
 
 ### Question 2
 
+SELECT
+    name AS "airport name"
+FROM
+    airport
+WHERE
+    type = 'large_airport';
+
+![screenshot](w3a2q2.png)
 ### Question 3
 
+
+SELECT
+    country.name AS "country_name",
+    airport.name AS "airport_name"
+FROM
+    country
+JOIN
+    airport ON country.iso_country = airport.iso_country
+WHERE
+    country.continent = 'AN';
+
+
+![screenshot](w3a2q3.png)
 ### Question 4
+
+SELECT
+    a.elevation_ft AS "elevation_ft"
+FROM
+    airport a
+JOIN
+    game g ON g.location = a.ident
+WHERE
+    g.screen_name = 'Heini';
+
+
+![screenshot](w3a2q4.png)
 
 ### Question 5
 
+SET @elevation_ft_Heini := (
+    SELECT
+        a.elevation_ft
+    FROM
+        airport a
+    JOIN
+        game g ON g.location = a.ident
+    WHERE
+        g.screen_name = 'Heini'
+);
+
+SET @elevation_m_Heini := 0.3048 * @elevation_ft_Heini;
+
+SELECT @elevation_m_Heini AS elevation_m;
+
+![screenshot](w3a2q5.png)
 ### Question 6
+SELECT
+    a.name AS "name"
+FROM
+    airport a
+JOIN
+    game g ON g.location = a.ident
+WHERE
+    g.screen_name = 'Ilkka';
 
+![screenshot](w3a2q6.png)
 ### Question 7
-
+SELECT name
+FROM country
+WHERE iso_country = (SELECT iso_country
+                     FROM airport
+                     WHERE ident = (SELECT location
+                                    FROM game
+                                    WHERE screen_name = 'Ilkka'));
+![screenshot](w3a2q7.png)
 ### Question 8
-
+select name
+from goal
+where id in
+            (select goal_id
+             from goal_reached
+             where game_id=
+                   (select id from game where screen_name="Heini"));
+![screenshot](w3a2q8.png)
 ### Question 9
 
+
+![screenshot](w3a2q9.png)
 ### Question 10
+
+
+![screenshot](w3a2q10.png)
