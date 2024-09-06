@@ -173,6 +173,13 @@ WHERE ident = (SELECT location
 
 ![screenshot](w3a2q9.png)
 ### Question 10
+SELECT name
+FROM country
+WHERE iso_country = (SELECT iso_country
+                     FROM airport
+                     WHERE ident = (SELECT location
+                                    FROM game
+                                    WHERE screen_name = 'Ilkka'));
 
 
 ![screenshot](w3a2q10.png)
