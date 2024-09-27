@@ -114,3 +114,27 @@ WHERE latitude_deg in
     );
 
 ![screenshot](w5a1q10.png)
+
+## Assignment 2
+
+### Question 1
+
+UPDATE game
+SET location = (SELECT ident
+                FROM airport
+                WHERE name = 'Nottingham Airport'),
+    co2_consumed = co2_consumed + 500
+WHERE screen_name = 'Vesa';
+
+![screenshot](w5a2q1.png)
+
+### Question 2
+DELETE FROM goal_reached;
+
+![screenshot](w5a2q2.png)
+
+### Question 3
+
+DELETE FROM game;
+
+![screenshot](w5a2q3.png)
