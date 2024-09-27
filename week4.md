@@ -102,4 +102,4 @@ select name
 from goal
 where id not in (select goal_id from goal_reached where game_id in (select id from game where screen_name='Heini'));
 
-![screenshot](w4a2q5.png)
+![screenshot](w4a2q500.png)
